@@ -5,17 +5,17 @@
   
 
   
-  <title>我的第一的博客 | 飞龙在天</title>
+  <title>MySQL | 飞龙在天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我的博客我的博客都不知道放什么">
+  <meta name="description" content="网上书店代码 Target Server Type    : MySQL Target Server Version : 50645 File Encoding         : 65001  Date: 13&#x2F;11&#x2F;2020 10:46:59*&#x2F; SET NAMES utf8mb4;SET FOREIGN_KEY_CHECKS &#x3D; 0;  – Table structure for b_ord">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一个博客">
+<meta property="og:title" content="MySQL">
 <meta property="og:url" content="https://huaup.github.io/2020/11/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%BB%99%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="飞龙在天">
-<meta property="og:description" content="我的博客我的博客都不知道放什么">
+<meta property="og:description" content="网上书店代码 Target Server Type    : MySQL Target Server Version : 50645 File Encoding         : 65001  Date: 13&#x2F;11&#x2F;2020 10:46:59*&#x2F; SET NAMES utf8mb4;SET FOREIGN_KEY_CHECKS &#x3D; 0;  – Table structure for b_ord">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-12T10:40:02.000Z">
-<meta property="article:modified_time" content="2020-11-13T12:14:01.419Z">
+<meta property="article:modified_time" content="2020-11-13T13:31:09.037Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -80,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一的博客
+      MySQL
     </h1>
   
 
@@ -88,7 +88,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="我的博客"><a href="#我的博客" class="headerlink" title="我的博客"></a>我的博客</h2><p>我的博客都不知道放什么</p>
+        <h2 id="网上书店代码"><a href="#网上书店代码" class="headerlink" title="网上书店代码"></a>网上书店代码</h2><p> Target Server Type    : MySQL<br> Target Server Version : 50645<br> File Encoding         : 65001</p>
+<p> Date: 13/11/2020 10:46:59<br>*/</p>
+<p>SET NAMES utf8mb4;<br>SET FOREIGN_KEY_CHECKS = 0;</p>
+<hr>
+<p>– Table structure for b_order</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>b_order</code>;<br>CREATE TABLE <code>b_order</code>  (<br>  <code>bid</code> int(11) NOT NULL,<br>  <code>uid</code> char(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,<br>  <code>ordernum</code> int(11) DEFAULT 1,<br>  <code>orderdate</code> datetime(0) DEFAULT NULL,<br>  <code>deliverdate</code> datetime(0) DEFAULT NULL<br>) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;</p>
+<hr>
+<p>– Records of b_order</p>
+<hr>
+<p>INSERT INTO <code>b_order</code> VALUES (1, ‘1001’, 2, ‘2016-03-12 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (3, ‘1001’, 1, ‘2016-04-15 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (1, ‘1001’, 1, ‘2016-09-15 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (7, ‘1003’, 1, ‘2015-12-14 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (3, ‘1003’, 1, ‘2016-10-10 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (5, ‘1005’, 1, ‘2015-08-17 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (7, ‘1005’, 3, ‘2016-11-12 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (5, ‘1006’, 1, ‘2016-09-18 00:00:00’, NULL);<br>INSERT INTO <code>b_order</code> VALUES (1, ‘1006’, 2, ‘2016-10-21 00:00:00’, NULL);</p>
+<hr>
+<p>– Table structure for book</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>book</code>;<br>CREATE TABLE <code>book</code>  (<br>  <code>bid</code> int(11) NOT NULL,<br>  <code>bname</code> varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,<br>  <code>author</code> char(8) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,<br>  <code>price</code> float DEFAULT NULL,<br>  <code>publisher</code> varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,<br>  <code>discount</code> float DEFAULT NULL,<br>  <code>cid</code> int(11) DEFAULT NULL,<br>  PRIMARY KEY (<code>bid</code>) USING BTREE,<br>  INDEX <code>fk_book_category</code>(<code>cid</code>) USING BTREE,<br>  CONSTRAINT <code>fk_book_category</code> FOREIGN KEY (<code>cid</code>) REFERENCES <code>category</code> (<code>cid</code>) ON DELETE RESTRICT ON UPDATE RESTRICT<br>) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;</p>
+<hr>
+<p>– Records of book</p>
+<hr>
+<p>INSERT INTO <code>book</code> VALUES (1, ‘中国时代’, ‘师永’, 39, ‘作家出版社’, 27.8, 1);<br>INSERT INTO <code>book</code> VALUES (2, ‘中国历史的屈辱’, ‘王重旭’, 26, ‘华夏出版社’, 18.2, 2);<br>INSERT INTO <code>book</code> VALUES (3, ‘择业要趁早’, ‘海文’, 28, ‘海天出版社’, 19.3, 3);<br>INSERT INTO <code>book</code> VALUES (4, ‘房间’, ‘爱玛’, 37.6, ‘人民文学出版社’, 26.3, 4);<br>INSERT INTO <code>book</code> VALUES (5, ‘平凡的世界’, ‘路遥’, 75, ‘北京出版社’, 63.75, 4);<br>INSERT INTO <code>book</code> VALUES (6, ‘心灵鸡汤’, ‘关然’, 27, ‘大豫出版社’, 20, 3);<br>INSERT INTO <code>book</code> VALUES (7, ‘蜕’, ‘赵婷’, 32, ‘上海出版社’, 28.5, 3);</p>
+<hr>
+<p>– Table structure for category</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>category</code>;<br>CREATE TABLE <code>category</code>  (<br>  <code>cid</code> int(11) NOT NULL,<br>  <code>cname</code> varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,<br>  PRIMARY KEY (<code>cid</code>) USING BTREE<br>) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;</p>
+<hr>
+<p>– Records of category</p>
+<hr>
+<p>INSERT INTO <code>category</code> VALUES (1, ‘历史’);<br>INSERT INTO <code>category</code> VALUES (2, ‘家教’);<br>INSERT INTO <code>category</code> VALUES (3, ‘文化’);<br>INSERT INTO <code>category</code> VALUES (4, ‘小说’);</p>
+<hr>
+<p>– Table structure for user</p>
+<hr>
+<p>DROP TABLE IF EXISTS <code>user</code>;<br>CREATE TABLE <code>user</code>  (<br>  <code>uid</code> char(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,<br>  <code>uname</code> varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,<br>  <code>email</code> varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,<br>  <code>tnum</code> varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,<br>  <code>score</code> int(11) DEFAULT NULL,<br>  PRIMARY KEY (<code>uid</code>) USING BTREE<br>) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;</p>
+<hr>
+<p>– Records of user</p>
+<hr>
+<p>INSERT INTO <code>user</code> VALUES (‘1001’, ‘何仙姑’, ‘18@163.com’, ‘13320101991’, 20);<br>INSERT INTO <code>user</code> VALUES (‘1002’, ‘平平人生’, ‘Lp011@126.com’, ‘13545158219’, 300);<br>INSERT INTO <code>user</code> VALUES (‘1003’, ‘四十不惑’, ‘12345@qq.com’, ‘18688168818’, 1000);<br>INSERT INTO <code>user</code> VALUES (‘1004’, ‘桃花岛主’, ‘810124@qq.com’, ‘13068011234’, 600);<br>INSERT INTO <code>user</code> VALUES (‘1005’, ‘水灵’, ‘zs123@371.cn’, ‘15838182503’, 150);<br>INSERT INTO <code>user</code> VALUES (‘1006’, ‘感动心灵’, ‘gandongtom.com’, ‘13644151234’, 500);</p>
+<p>SET FOREIGN_KEY_CHECKS = 1;</p>
+<pre><code>      -- 项目1</code></pre>
+<p>uid AS 会员编号,uname AS 会员昵称,email AS 电子邮箱,tnum as 电话号码,score as 积分<br>– （1）输出积分高于500<br>SELECT  uname AS 会员昵称,tnum as 电话号码,score as 积分<br>FROM <code>user</code><br>HAVING score&gt;500</p>
+<p>–（2）输出积分小于200</p>
+<p>SELECT  uname AS username,tnum as telephone,score as 积分<br>FROM <code>user</code><br>HAVING score&lt;200</p>
+<p>–(3)查询QQ邮箱</p>
+<p>SELECT  uname AS 会员昵称,email AS “E-mail”<br>FROM <code>user</code><br>WHERE email LIKE’%qq.com’</p>
+<p>–（4）订购日期<br>SELECT *<br>FROM b_order<br>where year(b_order.orderdate)=’2016’ and month(b_order.orderdate)=’10’</p>
+<p>–（5）订货号<br>select DISTINCT (uid)<br>from b_order</p>
+<p>–（6）名称价格<br>SELECT bname , discount<br>FROM book<br>order by discount DESC</p>
+<p>–（7）价格<br>SELECT bname as 图书名称 , price as 价格<br>FROM book<br>order by price DESC<br> limit 0,3;</p>
+<p> –项目2</p>
+<p>–（1）图书最高<br> SELECT MAX( price) as 最高价格 ,MIN(price)  as 最低价格,AVG(price) as 平均价格<br>FROM book</p>
+<p>–（2）类别数量</p>
+<p>SELECT bname as 图书名称,cid as 图书类别<br>FROM book</p>
+<p>–（3）类别最高</p>
+<p>SELECT cid, MAX( price) as 最高价格 ,MIN(price)  as 最低价格,AVG(price) as 平均价格<br>FROM book<br>GROUP BY cid</p>
+<p>– （4）订购数量</p>
+<p>SELECT uid as 图书编号,ordernum as 订购数量<br>FROM b_order<br>WHERE ordernum &gt;3;</p>
 
       
     </div>
@@ -132,7 +185,7 @@
       <ul>
         
           <li>
-            <a href="/2020/11/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%BB%99%E5%8D%9A%E5%AE%A2/">我的第一的博客</a>
+            <a href="/2020/11/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%BB%99%E5%8D%9A%E5%AE%A2/">MySQL</a>
           </li>
         
       </ul>
